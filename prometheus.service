@@ -1,0 +1,10 @@
+[Unit]
+Description=Prometheus Server
+Documentation=https://prometheus.io/docs/introduction/overview/
+After=network.target
+[Service]
+Type=simple
+User=nologin
+ExecStart=/home/jonatas/prometheus/prometheus-2.3.2.linux-amd64/prometheus --config.file=/home/jonatas/prometheus/prometheus-2.3.2.linux-amd64/prometheus.yml --storage.tsdb.path=/home/jonatas/prometheus/prometheus-2.3.2.linux-amd64/data
+[Install]
+WantedBy=multi-user.target

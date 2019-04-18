@@ -1,0 +1,12 @@
+[Unit]
+Description=Grafana
+After=network.target
+[Service]
+Type=simple
+User=nologin
+WorkingDirectory=/home/jonatas/grafana         
+ExecStart=/home/jonatas/grafana/bin/grafana-server 
+Restart=on-abort
+[Install]
+WantedBy=multi-user.target
+

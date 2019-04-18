@@ -1,0 +1,12 @@
+[Unit]
+Description=Zookeper
+After=network.target
+[Service]
+Type=simple
+User=nologin
+WorkingDirectory=/home/jonatas/kafka_2.12-2.2.0
+Environment="EXTRA_ARGS=-javaagent:/home/jonatas/prometheus/zookeeper/jmx_prometheus_javaagent-0.3.1.jar=8080:/home/jonatas/prometheus/zookeeper.yaml"
+ExecStart=/home/jonatas/kafka_2.12-2.2.0/bin/zookeeper-server-start.sh config/zookeeper.properties
+Restart=on-abort
+[Install]
+WantedBy=multi-user.target

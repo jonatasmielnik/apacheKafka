@@ -1,0 +1,11 @@
+[Unit]
+Description=Kafka-Monitor
+After=network.target
+[Service]
+Type=simple
+User=nologin
+WorkingDirectory=/home/jonatas/kafka-monitor
+ExecStart=/home/jonatas/bin/kafka-monitor/kafka-monitor-start.sh config/kafka-monitor.properties
+Restart=on-abort
+[Install]
+WantedBy=multi-user.target
